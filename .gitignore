@@ -27,3 +27,4 @@ _deps
 
 .idea/
 target/
+models/*

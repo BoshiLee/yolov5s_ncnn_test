@@ -5,7 +5,6 @@
 #include <opencv2/highgui/highgui.hpp>
 #include "headers/net.h"
 
-
 int main()
 {
     cv::Mat img = cv::imread("face.jpg", cv::IMREAD_GRAYSCALE);
@@ -19,8 +18,8 @@ int main()
     in.substract_mean_normalize(mean, norm);
 
     ncnn::Net net;
-    net.load_param("models/v5s-p6_wider_face_sim-opt.param");
-    net.load_model("models/v5s-p6_wider_face_sim-opt.bin");
+    net.load_param("models/v5s-p6_wider_face_sim-opt/model.param.bin");
+    net.load_model("models/v5s-p6_wider_face_sim-opt/model.bin");
 
     ncnn::Extractor ex = net.create_extractor();
     ex.set_light_mode(true);

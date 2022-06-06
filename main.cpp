@@ -19,8 +19,8 @@ int main()
     in.substract_mean_normalize(mean, norm);
 
     ncnn::Net net;
-    net.load_param("models/opt.param");
-    net.load_model("models/opt.bin");
+    net.load_param("models/v5s-p6_wider_face_sim-opt.param");
+    net.load_model("models/v5s-p6_wider_face_sim-opt.bin");
 
     ncnn::Extractor ex = net.create_extractor();
     ex.set_light_mode(true);

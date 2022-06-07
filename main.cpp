@@ -32,6 +32,6 @@ int main()
 
     ncnn::Mat feat;
     ex.extract("output", feat);
-    printf("x = %d\n", feat);
+    printf("x = %d\n", feat.w);
     return 0;
 }

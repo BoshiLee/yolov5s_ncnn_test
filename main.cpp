@@ -18,17 +18,17 @@ int main()
     in.substract_mean_normalize(mean, norm);
 
     ncnn::Net net;
-    net.load_param("models/v5s-p6_wider_face_sim-opt/model.param.bin");
+    net.load_param("models/v5s-p6_wider_face_sim-opt/model.param");
     net.load_model("models/v5s-p6_wider_face_sim-opt/model.bin");
 
     ncnn::Extractor ex = net.create_extractor();
     ex.set_light_mode(true);
     ex.set_num_threads(4);
 
-    ex.input("data", in);
+    ex.input("images", in);
 
     ncnn::Mat feat;
     ex.extract("output", feat);
-    printf("x = %d", feat);
+    printf("x = %d\n", feat);
     return 0;
 }

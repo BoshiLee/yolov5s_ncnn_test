@@ -11,8 +11,11 @@ int main()
     int w = img.cols;
     int h = img.rows;
 
+    int target_width = 640;// target resized width
+    int target_height = 640;// target resized height
+
     // subtract 128, norm to -1 ~ 1
-    ncnn::Mat in = ncnn::Mat::from_pixels_resize(img.data, ncnn::Mat::PIXEL_GRAY, w, h, 60, 60);
+    ncnn::Mat in = ncnn::Mat::from_pixels_resize(img.data, ncnn::Mat::PIXEL_GRAY, w, h, target_width, target_height);
     float mean[1] = { 128.f };
     float norm[1] = { 1/128.f };
     in.substract_mean_normalize(mean, norm);

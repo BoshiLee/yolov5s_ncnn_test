@@ -41,7 +41,7 @@ RUN useradd -ms /bin/bash clion
 RUN echo 'clion:pwd' | chpasswd
 RUN usermod -aG sudo clion
 WORKDIR /home/app
-ADD compile_env.sh
+ADD compile_env.sh /home/app/
 RUN chmod u+x compile_env.sh
 ########################################################
 # Add custom packages and development environment here

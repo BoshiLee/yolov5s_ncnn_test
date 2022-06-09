@@ -69,6 +69,7 @@ RUN wget --no-check-certificate https://sdk.lunarg.com/sdk/download/1.2.189.0/li
 RUN tar -xf vulkansdk-linux-x86_64-1.2.189.0.tar.gz
 RUN export VULKAN_SDK=$(pwd)/1.2.189.0/x86_64
 RUN rm vulkansdk-linux-x86_64-1.2.189.0.tar.gz
+RUN bash compile_env.sh
 ########################################################
 
 CMD ["/usr/sbin/sshd", "-D"]

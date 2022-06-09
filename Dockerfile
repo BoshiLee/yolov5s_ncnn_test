@@ -39,7 +39,8 @@ EXPOSE 22 7777
 
 RUN useradd -ms /bin/bash clion
 RUN echo 'clion:pwd' | chpasswd
-
+RUN usermod -aG sudo clion
+WORKDIR /home/app
 ########################################################
 # Add custom packages and development environment here
 ########################################################
@@ -55,7 +56,7 @@ RUN sudo apt-get install --no-install-recommends -y libprotobuf-dev \
 	libavcodec-dev \
 	libavformat-dev \
 	libswscale-dev
-WORKDIR /home/app
+
 RUN wget --no-check-certificate https://github.com/opencv/opencv/archive/4.1.1.zip
 RUN unzip 4.1.1
 RUN rm 4.1.1.zip

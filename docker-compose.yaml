@@ -1,0 +1,23 @@
+# From: https://github.com/shuhaoliu/docker-clion-dev/blob/master/docker-compose.yml
+
+version: '3'
+
+volumes:
+    clion_remote_env:
+
+services:
+ gdbserver:
+   build:
+     context: ./
+     dockerfile: ./Dockerfile
+   image: clion_dev
+   security_opt:
+     - seccomp:unconfined
+   container_name: clion_remote_env
+   ports:
+     - "7776:22"
+     - "7777:7777"
+   volumes:
+     - clion_remote_env:/home/app
+   working_dir: /home/app
+   hostname: clion_remote_env

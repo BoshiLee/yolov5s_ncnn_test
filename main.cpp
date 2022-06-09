@@ -29,7 +29,7 @@ static ncnn::Mat detect_yolo(const cv::Mat& img)
     ex.set_num_threads(4);
 
     ex.input("images", in);
-
+    std::cout << "載入輸入" << "\n";
     ncnn::Mat out;
     ex.extract("output", out);
 

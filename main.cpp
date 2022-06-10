@@ -5,6 +5,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 #include "headers/net.h"
+#include "YoloV5Focus.h"
 #include <iostream>
 
 static ncnn::Mat detect_yolo(const cv::Mat& img)
@@ -21,6 +22,8 @@ static ncnn::Mat detect_yolo(const cv::Mat& img)
     in.substract_mean_normalize(mean, norm);
 
     ncnn::Net net;
+    net.register_custom_layer("YoloV5Focus", YoloV5Focus_layer_creator);
+
     net.load_param("../models/v5s-p6_wider_face_sim-opt/model.param");
     net.load_model("../models/v5s-p6_wider_face_sim-opt/model.bin");
     std::cout << "載入模型成功!" << "\n";

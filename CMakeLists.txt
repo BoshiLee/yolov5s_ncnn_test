@@ -7,6 +7,7 @@ find_package(ncnn REQUIRED)
 # open cv
 find_package( OpenCV REQUIRED )
 add_executable(yolo_ncnn main.cpp)
+add_executable(yolo_forward yolov5.cpp)
 
 if(ncnn_FOUND)
     message(STATUS "ncnn library: ${ncnn_INSTALL_PATH}")
